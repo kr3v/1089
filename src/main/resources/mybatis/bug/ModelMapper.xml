@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.bug.ModelMapper">
+    <resultMap id="model" type="mybatis.bug.Model" >
+        <id property="id" column="id" javaType="int"/>
+        <result property="text" column="text" javaType="string"/>
+    </resultMap>
+
+    <select id="select" resultType="model">
+        SELECT *
+        FROM model
+        WHERE id = #{t}
+    </select>
+
+    <select id="selectAll" resultMap="model">
+        SELECT *
+        FROM model
+        WHERE id = #{t.id}
+    </select>
+
+    <select id="selectById" resultType="model">
+        SELECT *
+        FROM model
+        WHERE id = #{t}
+    </select>
+
+    <select id="selectAllById" resultMap="model">
+        SELECT *
+        FROM model
+        WHERE id = #{t.id}
+    </select>
+
+    <select id="selectEnum" resultType="model">
+        SELECT *
+        FROM model
+        WHERE id = #{en.id}
+    </select>
+
+    <insert id="insert">
+        INSERT INTO model
+        VALUES (#{t.id}, #{t.text})
+    </insert>
+</mapper>
