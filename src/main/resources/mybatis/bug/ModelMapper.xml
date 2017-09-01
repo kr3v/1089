@@ -10,7 +10,7 @@
     <select id="select" resultType="model">
         SELECT *
         FROM model
-        WHERE id = #{t}
+        WHERE id = #{t.id}
     </select>
 
     <select id="selectAll" resultMap="model">
@@ -28,7 +28,7 @@
     <select id="selectAllById" resultMap="model">
         SELECT *
         FROM model
-        WHERE id = #{t.id}
+        WHERE id = #{t}
     </select>
 
     <select id="selectEnum" resultType="model">
